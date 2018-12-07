@@ -7,7 +7,8 @@ Note: If you use the free WakaTime service on your own machine, you can track ex
 
 1. How long did the entire project (assignment 1) take you?
 > answer...
-
+1 Day
 
 2. What do you plan to do  differently in your development process for assignment 2?
 > answer...
+Have a better coding style
