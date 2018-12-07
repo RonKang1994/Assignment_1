@@ -1,5 +1,7 @@
 """
-CP 1404 Assignment 1 Ron Kang 13668385
+CP 1404 Assignment 1 Ron Kang 07/12/2018
+A program that adds and completes a song to put in a CSV file
+Github Repository URL: https://github.com/RonKang1994/Assignment_1
 """
 import csv
 
@@ -116,6 +118,11 @@ def main():
             song_to_learn = learn_song(song_list)
             song_list[song_to_learn - 1][-1] = 'y'
             print("{} by {} learned".format(song_list[song_to_learn - 1][0],song_list[song_to_learn - 1][1]))
-
+        elif choice_menu.upper() == "Q":
+            print("{} songs saved to songs.csv".format(song_num))
+            song_file = open('songs.csv', 'w')
+            for songs in song_list:
+                print("{},{},{},{}".format(songs[0], songs[1], songs[2], songs[3]), file=song_file)
+            song_file.close()
 
 main()
