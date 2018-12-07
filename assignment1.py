@@ -44,6 +44,12 @@ def invalid_input_number(input):
     else:
         return True
 
+def invalid_input_char(input):
+    if input == '':
+        print("Input can not be blank")
+        return False
+    else:
+        return True
 
 def learn_song(song_list):
     """Used for learning songs
@@ -55,6 +61,26 @@ def learn_song(song_list):
         song_choice = int(input("Enter the number of a song to mark as learned\n"))
 
     return song_choice
+
+
+def add_song():
+    new_song = []
+    add = str(input("Title: "))
+    while(invalid_input_char(add) == False):
+        add = str(input("Title: "))
+    new_song.append(add)
+    add = str(input("Artist: "))
+    while(invalid_input_char(add) == False):
+        add = str(input("Artist: "))
+    new_song.append(add)
+    add = int(input("Year: "))
+    while(invalid_input_number(add) == False):
+        add = int(input("Year: "))
+    new_song.append(add)
+    add = 'n'
+    new_song.append(add)
+    print("{} by {} ({}) added to the song list".format(new_song[0], new_song[1], new_song[2]))
+    return new_song
 
 
 def main():
@@ -83,14 +109,13 @@ def main():
         choice_menu = str(input(">>> "))
         if choice_menu.upper() == "L":
             full_song_list(song_list)
-            print(song_list)
         elif choice_menu.upper() == "A":
-            print("Test A Choice")
+            song_list.append(add_song())
+            song_num += 1
         elif choice_menu.upper() == "C":
             song_to_learn = learn_song(song_list)
             song_list[song_to_learn - 1][-1] = 'y'
             print("{} by {} learned".format(song_list[song_to_learn - 1][0],song_list[song_to_learn - 1][1]))
-            print("Test C Choice")
 
 
 main()
